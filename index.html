@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <title>login</title>
+    </head>
+    <body>
+<div id="login">
+   <label for="user">Username</label><br>
+    <input id="user"  placeholder="username"><br>
+   <label for="pass">Password</label><br>
+   <input id="pass" placeholder="Password"><br>
+   <button type="submit" onclick="login()">login</button>
+</div>
+    </body>
+    <script>
+     function login(){
+        let user=document.getElementById("user").value
+        let pass=document.getElementById("pass").value
+        console.log(typeof user)
+        console.log(typeof pass)
+        if(user=="nandees" && pass==123)
+        alert("login successfull")
+    else
+    alert("invalid username or password")
+    document.getElementById("user").value=""
+    document.getElementById("pass").value=""
+
+
+
+     }
+    </script>
+</html>
