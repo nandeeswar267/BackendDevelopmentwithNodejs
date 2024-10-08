@@ -1,0 +1,11 @@
+-------------------------------------------------------
+Assessment -1
+1.use modal window to find the eligibility of voting.
+2.use modal window to find the odd or even.
+3.use modal window to find the addition.
+------------------------------------------------
+Assessment -2
+1.create a login/signup pages using Javascript with a single object for both login/signup.
+----------------------------------------------------------
+Assessment -3 
+1.write a http server for login and signup 
