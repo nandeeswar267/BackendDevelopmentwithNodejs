@@ -9,3 +9,6 @@ Assessment -2
 ----------------------------------------------------------
 Assessment -3 
 1.write a http server for login and signup 
+---------------------------------------------------------
+Assessement -4
+1.write two api for login,signup and forgotpassword using express with using json not Db
