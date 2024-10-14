@@ -15,3 +15,7 @@ Assessement -4
 ---------------------------------------------------------
 Assessement -5
 1.write three api for login,signup and forgotpassword using express with using Mysql
+---------------------------------------------------------
+Assessement -6
+1.write three api for login,signup and forgotpassword using express with using Mongodb
+---------------------------------------------------------
