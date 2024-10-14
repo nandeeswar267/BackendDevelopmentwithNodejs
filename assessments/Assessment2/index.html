@@ -1,49 +1,67 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Page</title>
     <style>
-
-        #login{
-            border: 2px solid black;
-            text-align: center;
-            padding: 20px;
-            height: 20%;
-            width: 30%;
-            margin: 10% 30% 10% 30%;
-            
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
-        
+        .container {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        p {
+            text-align: center;
+        }
+        #message {
+            color: red;
+            text-align: center;
+            font-size: 14px;
+        }
     </style>
 </head>
-
 <body>
-    <div id="login">
-        <h1>login</h1><label for="user">Username</label><br>
-        <input id="user" placeholder="username"><br>
-        <label for="pass">Password</label><br>
-            <input id="pass" placeholder="Password"><br>
-            <a>create One?Signup</a><br>
-            <button type="submit" onclick="login()">login</button>
 
-            
-    </div>
+<div class="container">
+    <h2 id="formTitle">Signup</h2>
+    <input type="text" id="username" placeholder="Enter Username" required>
+    <input type="password" id="password" placeholder="Enter Password" required>
+    <button onclick="submitForm()">Submit</button>
+    <p><a href="#" id="toggleLink" onclick="toggleForm()">Already have an account? Login</a></p>
+    <p id="message"></p>
+</div>
+
+<script src="script.js"></script>
 </body>
-<script>function login() {
-        let user = document.getElementById("user").value 
-        let pass = document.getElementById("pass").value 
-        let d = {}
-
-        if (user == "nandees" && pass == 123)
-         alert("login successfull")
-         else 
-         alert("invalid username or password") 
-        document.getElementById("user").value = ""
-        document.getElementById("pass").value = ""
-
-    }
-
-</script>
-
 </html>
