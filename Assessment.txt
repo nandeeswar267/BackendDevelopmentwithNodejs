@@ -19,3 +19,16 @@ Assessement -5
 Assessement -6
 1.write three api for login,signup and forgotpassword using express with using Mongodb
 ---------------------------------------------------------
+Assessement -7
+1.Integrate the MySQL api with the frontend 
+2.create a collection in the postman for the developed api (upload screenshots)
+-----------------------------------------------------------
+Assessment -8
+1.Develop a email otp verification api for the forgot password
+-----------------------------------------------------------
+Assessment -9
+1.create a Simple WebSocket server and client in integrate with http Server
+-------------------------------------------------------
+Assessment -10
+1.Create a Socketio Server and Client with the basic events.
+-------------------------------------------------------
