@@ -1,0 +1,10 @@
+01.Real-Time Chat Application with WebSocket Integration
+02.Secure Login and Signup System with OTP Email Verification
+03.Building a RESTful API for User Authentication using Node.js and MongoDB
+04.File Upload System with Multer and Express
+05.Implementing WebSocket Notifications for Real-Time Updates
+06.Interactive Frontend with Socket.IO for Real-Time Messaging
+07.User Management System with MySQL Integration in Node.js
+08.Asynchronous API with Async/Await, Promises, and Error Handling
+09.Creating a Modular Node.js Application with Express and Mongoose
+10.Developing a Basic Event-Driven Web Application with Socket.IO
