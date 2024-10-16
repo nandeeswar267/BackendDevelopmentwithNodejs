@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Authentication</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+    }
+    input[type="text"], input[type="password"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .message {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>User Authentication</h2>
+
+  <!-- Signup Form -->
+  <div id="signup-section">
+    <h3>Signup</h3>
+    <input type="text" id="signup-username" placeholder="Enter Username" required>
+    <input type="email" id="signup-email" placeholder="Enter Email" required>
+    <input type="password" id="signup-password" placeholder="Enter Password" required>
+    <button onclick="signup()">Signup</button>
+  </div>
+
+  <!-- Login Form -->
+  <div id="login-section">
+    <h3>Login</h3>
+    <input type="email" id="login-email" placeholder="Enter Email" required>
+    <input type="password" id="login-password" placeholder="Enter Password" required>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Forgot Password Form -->
+  <div id="forgot-password-section">
+    <h3>Forgot Password</h3>
+    <input type="email" id="forgot-email" placeholder="Enter Email" required>
+    <button onclick="requestOTP()">Request OTP</button>
+
+    <!-- OTP Verification Form -->
+    <input type="text" id="otp" placeholder="Enter OTP" style="display:none;">
+    <input type="password" id="new-password" placeholder="Enter New Password" style="display:none;">
+    <button onclick="verifyOTP()" style="display:none;" id="verify-otp-btn">Verify OTP</button>
+  </div>
+
+  <!-- Message Display -->
+  <div class="message" id="message"></div>
+</div>
+
+<script>
+ 
+
+  // Signup Function
+  function signup() {
+    const username = document.getElementById('signup-username').value;
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+
+    fetch(`/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('message').innerText = data.message;
+    })
+    .catch(err => console.error('Error:', err));
+  }
+
+  // Login Function
+  function login() {
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    fetch(`/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('message').innerText = data.message;
+    })
+    .catch(err => console.error('Error:', err));
+  }
+
+  // Request OTP Function for Forgot Password
+  function requestOTP() {
+    const email = document.getElementById('forgot-email').value;
+
+    fetch(`/forgot-password`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email })
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('message').innerText = data.message;
+
+      // Show OTP and New Password fields for verification
+      document.getElementById('otp').style.display = 'block';
+      document.getElementById('new-password').style.display = 'block';
+      document.getElementById('verify-otp-btn').style.display = 'block';
+    })
+    .catch(err => console.error('Error:', err));
+  }
+
+  // Verify OTP and Reset Password Function
+  function verifyOTP() {
+    const email = document.getElementById('forgot-email').value;
+    const otp = document.getElementById('otp').value;
+    const newPassword = document.getElementById('new-password').value;
+
+    fetch(`/verify-otp`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, otp, newPassword })
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('message').innerText = data.message;
+    })
+    .catch(err => console.error('Error:', err));
+  }
+</script>
+
+</body>
+</html>
